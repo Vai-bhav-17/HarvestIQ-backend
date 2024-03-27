@@ -1,0 +1,73 @@
+@mixin mobile {
+  @media (max-width: 738px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media (max-width: 1366px) {
+    @content;
+  }
+}
+
+.disease-detection {
+  margin-left: 1rem;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+
+  @include mobile {
+    padding-top: 2rem;
+    padding-right: 1rem;
+  }
+}
+
+.disease-header {
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  @include mobile {
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+.input-container input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.cancel-button {
+  background-color: #cc3333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Dm Sans", sans-serif;
+}
+
+.predict-button {
+  background-color: #294b29;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Dm Sans", sans-serif;
+}
+
+.predict-button:hover {
+  background-color: #1e3d1e;
+}
