@@ -19,16 +19,16 @@ import os
 current_dir = os.path.dirname(__file__)
 
 # Define paths relative to the current directory
-model_path = os.path.join(current_dir, 'models', 'model.pkl')
-fertilizer_path = os.path.join(current_dir, 'models', 'classifier1.pkl')
+model_path = os.path.join(current_dir, 'model.pkl')
+fertilizer_path = os.path.join(current_dir,  'classifier1.pkl')
 crop_model_paths = {
-    'cotton': os.path.join(current_dir, 'models', 'Cotton_price.pkl'),
-    'coconut': os.path.join(current_dir, 'models', 'Coconut_price.pkl'),
-    'gram': os.path.join(current_dir, 'models', 'Gram_price.pkl'),
-    'jute': os.path.join(current_dir, 'models', 'Jute_price.pkl'),
-    'maize': os.path.join(current_dir, 'models', 'Maize_price.pkl'),
-    'moong': os.path.join(current_dir, 'models', 'Moong_price.pkl'),
-    'wheat': os.path.join(current_dir, 'models', 'wheat_price.pkl'),
+    'cotton': os.path.join(current_dir,  'Cotton_price.pkl'),
+    'coconut': os.path.join(current_dir,  'Coconut_price.pkl'),
+    'gram': os.path.join(current_dir,  'Gram_price.pkl'),
+    'jute': os.path.join(current_dir,  'Jute_price.pkl'),
+    'maize': os.path.join(current_dir,  'Maize_price.pkl'),
+    'moong': os.path.join(current_dir,  'Moong_price.pkl'),
+    'wheat': os.path.join(current_dir,  'wheat_price.pkl'),
 }
 
 # Load models using relative paths
