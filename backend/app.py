@@ -13,18 +13,28 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 
-model = pickle.load(open(r"C:\Users\Vaibhav N\Desktop\Python Project\HarvestIQ\models\model.pkl", 'rb'))
-fertilizer = pickle.load(open(r"C:\Users\Vaibhav N\Desktop\Python Project\HarvestIQ\models\classifier1.pkl",'rb'))
-crop_models = {
-    'cotton': pickle.load(open(r"C:\Users\Vaibhav N\Desktop\Python Project\HarvestIQ\models\Cotton_price.pkl", 'rb')),
-    'coconut': pickle.load(open(r"C:\Users\Vaibhav N\Desktop\Python Project\HarvestIQ\models\Coconut_price.pkl", 'rb')),
-    'gram': pickle.load(open(r"C:\Users\Vaibhav N\Desktop\Python Project\HarvestIQ\models\Gram_price.pkl", 'rb')),
-    'jute': pickle.load(open(r"C:\Users\Vaibhav N\Desktop\Python Project\HarvestIQ\models\Jute_price.pkl", 'rb')),
-    'maize': pickle.load(open(r"C:\Users\Vaibhav N\Desktop\Python Project\HarvestIQ\models\Maize_price.pkl", 'rb')),
-    'moong': pickle.load(open(r"C:\Users\Vaibhav N\Desktop\Python Project\HarvestIQ\models\Moong_price.pkl", 'rb')),
-    'wheat': pickle.load(open(r"C:\Users\Vaibhav N\Desktop\Python Project\HarvestIQ\models\wheat_price.pkl", 'rb')),
+import os
+
+# Get the directory where the app.py file is located
+current_dir = os.path.dirname(__file__)
+
+# Define paths relative to the current directory
+model_path = os.path.join(current_dir, 'models', 'model.pkl')
+fertilizer_path = os.path.join(current_dir, 'models', 'classifier1.pkl')
+crop_model_paths = {
+    'cotton': os.path.join(current_dir, 'models', 'Cotton_price.pkl'),
+    'coconut': os.path.join(current_dir, 'models', 'Coconut_price.pkl'),
+    'gram': os.path.join(current_dir, 'models', 'Gram_price.pkl'),
+    'jute': os.path.join(current_dir, 'models', 'Jute_price.pkl'),
+    'maize': os.path.join(current_dir, 'models', 'Maize_price.pkl'),
+    'moong': os.path.join(current_dir, 'models', 'Moong_price.pkl'),
+    'wheat': os.path.join(current_dir, 'models', 'wheat_price.pkl'),
 }
 
+# Load models using relative paths
+model = pickle.load(open(model_path, 'rb'))
+fertilizer = pickle.load(open(fertilizer_path, 'rb'))
+crop_models = {key: pickle.load(open(path, 'rb')) for key, path in crop_model_paths.items()}
 
 
 @app.route('/', methods=['GET'])
