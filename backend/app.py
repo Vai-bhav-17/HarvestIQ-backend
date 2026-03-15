@@ -4,14 +4,13 @@ import numpy as np
 from flask_cors import CORS  # CORS for handling Cross-Origin Resource Sharing
 import pickle
 
-
-
+# --------------------------------------------
+# Temporary change for testing Git commit flow
+# --------------------------------------------
 
 app = Flask(__name__)
 
-
 CORS(app, resources={r"/*": {"origins": "*"}})
-
 
 import os
 
@@ -39,6 +38,7 @@ crop_models = {key: pickle.load(open(path, 'rb')) for key, path in crop_model_pa
 
 @app.route('/', methods=['GET'])
 def get_data():
+    print("Health check endpoint called")  # Dummy log for Git test
     data = {
         "message": "API is Running"
     }
@@ -59,6 +59,7 @@ def predict_crop():
     except Exception as e:
         return jsonify({'error': str(e)})
     
+
 # Define a route for making fertilizer predictions
 @app.route('/predictFertilizer', methods=['POST'])
 def predict_fertilizer():
@@ -86,6 +87,7 @@ def predict_fertilizer():
         return jsonify({'RecommendedFertilizer': recommended_fertilizer})
     except Exception as e:
         return jsonify({'error': str(e)})
+
 
 @app.route('/predictPrice', methods=['POST'])
 def predict_price():
@@ -121,3 +123,7 @@ def predict_price():
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0', port=5000)
+
+
+# End of file
+# Dummy update for Git workflow testing
