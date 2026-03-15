@@ -6,6 +6,8 @@ import pickle
 
 # --------------------------------------------
 # Temporary change for testing Git commit flow
+
+# Testing commit in git with new branch using git desktop
 # --------------------------------------------
 
 app = Flask(__name__)
